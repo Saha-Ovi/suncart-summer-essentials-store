@@ -1,7 +1,7 @@
 import React from 'react';
 import bannerImg from '../../../public/oofPicture.png'
 import Image from 'next/image';
-
+import 'animate.css';
 
 const Banner = () => {
     return (
@@ -20,7 +20,7 @@ const Banner = () => {
                 </div>
                 {/* right */}
                 <div className='w-full max-w-96 md:max-w-md lg:max-w-lg flex justify-center '>
-                    <Image src={bannerImg} alt='30% OFF' height={"500"} width={"500"} className='object-contain w-full h-auto rounded-xl '></Image>
+                    <Image src={bannerImg} alt='30% OFF' height={"500"} width={"500"} className='object-contain w-full h-auto rounded-xl animate__animated animate__pulse animate__infinite'></Image>
                 </div>
             </div>
 
