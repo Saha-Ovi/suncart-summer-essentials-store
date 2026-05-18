@@ -26,9 +26,10 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-theme="light"
-      className={`${sansDM.variable} h-full antialiased`}
+      className={` h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${sansDM.className} min-h-full flex flex-col`}>
+        {children}</body>
     </html>
   );
 }
