@@ -8,7 +8,7 @@ const ProductCard = ({ data }) => {
         <div>
             <div className="card bg-base-100 shadow-xl">
                 <figure className='w-full rounded-2xl overflow-hidden relative aspect-square'>
-                    <Image src={data.image} alt={data.name} height={300} width={300} className='object-cover'></Image>
+                    <Image src={data.image} alt={data.name} height={300} width={300} className='object-cover rounded-2xl'></Image>
                 </figure>
                 <div className="card-body">
                     <span className=''>{data.category}</span>
