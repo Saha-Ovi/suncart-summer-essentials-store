@@ -17,18 +17,18 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><Link href={'/'}>Home</Link></li>
-                            <li><Link href={'/product'}>Product</Link></li>
-                            <li><Link href={'/profile'}>Profile</Link></li>
+                            <li><Link href={'/'} className={`${pathName === '/' ? 'bg-[#F5A623] text-black' : " "}`}>Home</Link></li>
+                            <li><Link href={'/product'} className={`${pathName === '/product' ? 'bg-[#F5A623] text-black' : " "}`}>Product</Link></li>
+                            <li><Link href={'/profile'} className={`${pathName === '/profile' ? 'bg-[#F5A623] text-black' : " "}`}>Profile</Link></li>
                         </ul>
                     </div>
                     <a className="text-xl font-extrabold"><span className='text-[#1A1410]'>Sun</span><span className='text-[#F5A623]'>Cart ☀️</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><Link href={'/'} className={`${pathName === '/' ? 'bg-[#F5A623] text-black' :" "}`}>Home</Link></li>
-                        <li><Link href={'/product'} className={`${pathName === '/product' ? 'bg-[#F5A623] text-black' :" "}`}>Product</Link></li>
-                        <li><Link href={'/profile' } className={`${pathName === '/profile' ? 'bg-[#F5A623] text-black' :" "}`}>Profile</Link></li>
+                        <li><Link href={'/'} className={`${pathName === '/' ? 'bg-[#F5A623] text-black' : " "}`}>Home</Link></li>
+                        <li><Link href={'/product'} className={`${pathName === '/product' ? 'bg-[#F5A623] text-black' : " "}`}>Product</Link></li>
+                        <li><Link href={'/profile'} className={`${pathName === '/profile' ? 'bg-[#F5A623] text-black' : " "}`}>Profile</Link></li>
 
                     </ul>
                 </div>

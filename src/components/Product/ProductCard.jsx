@@ -6,9 +6,9 @@ const ProductCard = ({ data }) => {
     console.log(data);
     return (
         <div>
-            <div className="card bg-base-100  shadow-sm">
+            <div className="card bg-base-100 shadow-xl">
                 <figure className='w-full rounded-2xl overflow-hidden relative aspect-square'>
-                    <Image src={data.image} alt={data.name} height={150} width={150} className='object-cover'></Image>
+                    <Image src={data.image} alt={data.name} height={300} width={300} className='object-cover'></Image>
                 </figure>
                 <div className="card-body">
                     <span className=''>{data.category}</span>
@@ -21,7 +21,7 @@ const ProductCard = ({ data }) => {
                     <p>{data.description}</p>
                     <div className="card-actions justify-between items-center">
                         <div className="text-sm md:text-lg lg:text-xl font-medium">$ {data.price}</div>
-                        <Link href={`product/${data.id}`}><p className="btn btn-outline">Products Details</p></Link>
+                        <Link href={`product/${data.id}`}><p className="btn btn-warning ">Products Details</p></Link>
                     </div>
                 </div>
             </div>
