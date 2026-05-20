@@ -14,8 +14,8 @@ const Banner = () => {
                     <p className='text-white text-3xl md:text-5xl font-bold my-6'>Beat the Heat <br /> in <span className='text-[#F5A623]'>Style</span></p>
                     <p className='text-sm text-[#FAF6F0]'>Sunglasses, Outfits, Skincare & Beach Accessories — all in one place.</p>
                     <div className='mt-6 flex gap-6'>
-                        <button className='btn bg-[#F5A623] text-black border-none shadow-none rounded-full p-6 text-md'>Shop Now</button>
-                        <button className='btn bg-transparent text-white border-white shadow-none rounded-full p-6 text-md'>View Hot Deals 🔥</button>
+                        <button className='btn bg-[#F5A623] text-black border-none shadow-none rounded-full p-2 md:p-6 text-md'>Shop Now</button>
+                        <button className='btn bg-transparent text-white border-white shadow-none rounded-full p-2 md:p-6 text-md'>View Hot Deals 🔥</button>
                     </div>
                 </div>
                 {/* right */}
