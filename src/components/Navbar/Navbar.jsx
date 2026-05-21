@@ -7,7 +7,7 @@ const Navbar = () => {
     const pathName = usePathname();
     // console.log(pathName);
     return (
-        <div className='shadow-sm my-2 sticky'>
+        <div className='shadow-sm my-2'>
             <div className="container mx-auto navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
