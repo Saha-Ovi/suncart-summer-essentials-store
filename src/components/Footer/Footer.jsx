@@ -27,7 +27,7 @@ const Footer = () => {
                 </nav>
                 <nav>
                     <h6 className="footer-title text-[#FAF6F0]">Social</h6>
-                    <div className="grid grid-flow-col gap-4 text-[#FAF6F0]">
+                    <div className="grid grid-flow-col gap-4 text-[#FAF6F0] cursor-pointer">
                         <a>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
