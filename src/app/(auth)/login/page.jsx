@@ -4,6 +4,9 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import { useForm } from 'react-hook-form';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
+
 
 const LoginPage = () => {
     const [isPassword, setIsPassword] = useState(false);
@@ -13,10 +16,27 @@ const LoginPage = () => {
         watch,
         formState: { errors },
     } = useForm()
-    const handleFunction = (data) => {
-        console.log(data,"data");
-        
+    const handleFunction = async (data) => {
+        // console.log(data, "data");
+        const { data: res, error } = await authClient.signIn.email({
+            email: data.email,
+            password: data.password,
+            rememberMe: true,
+            callbackURL: "/"
+        })
+        console.log(res, error);
+        if (error) {
+            toast.error(error.message);
+        }
+        if (res) {
+            toast.success("Sign in Successful");
+        }
 
+    }
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     }
     return (
         <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100 my-8 p-4'>
@@ -36,7 +56,7 @@ const LoginPage = () => {
                         <div className='relative'>
                             <label className="label ">Password</label>
                             <input type={isPassword ? "text" : "password"} className="input w-full rounded-2xl p-4" {...register("password", { required: "Password field is required" })} placeholder="Type Your Password Here" />
-                            <span className='absolute right-4 top-7 text-lg' onClick={()=>setIsPassword(!isPassword)}>{isPassword ? <FaEye /> : <FaEyeSlash />}</span>
+                            <span className='absolute right-4 top-7 text-lg' onClick={() => setIsPassword(!isPassword)}>{isPassword ? <FaEye /> : <FaEyeSlash />}</span>
                         </div>
 
                         {
@@ -45,7 +65,10 @@ const LoginPage = () => {
 
                         <button className="btn bg-[#F5A623] text-black mt-4 rounded-2xl hover:bg-yellow-600 p-5">Login</button>
                         <div className="divider">or continue with</div>
-                        <button className="btn btn-outline mt-4 rounded-2xl hover:bg-[#F5A623] p-5"> <FcGoogle />Login With Google </button>
+                        <button onClick={(e)=>{
+                            e.preventDefault();
+                            handleGoogleLogin();
+                        }} className="btn btn-outline mt-4 rounded-2xl hover:bg-[#F5A623] p-5"> <FcGoogle />Login With Google </button>
                         <p className='text-center text-sm'>Don't Have An Account ? <Link href={'/register'} className='text-blue-400 '>Register</Link> </p>
 
                     </fieldset>

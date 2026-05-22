@@ -1,5 +1,6 @@
 import { DM_Sans, Playfair_Display, Roboto } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 const roboto = Roboto({
   variable:"--font-roboto",
@@ -29,7 +30,9 @@ export default function RootLayout({ children }) {
       className={` h-full antialiased`}
     >
       <body className={`${sansDM.className} min-h-full flex flex-col`}>
-        {children}</body>
+        {children}
+         <ToastContainer />
+        </body>
     </html>
   );
 }

@@ -5,8 +5,12 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import { useForm } from 'react-hook-form';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const RegisterPage = () => {
+    const router = useRouter();
     const [isPassword, setIsPassword] = useState(false);
     const {
         register,
@@ -14,10 +18,30 @@ const RegisterPage = () => {
         watch,
         formState: { errors },
     } = useForm()
-    const handleFunction = (data) => {
-        console.log(data, "data");
+    const handleFunction = async (data) => {
+        // console.log(data, "data");
+        const { name, email, photo, password } = data;
+        const { data: res, error } = await authClient.signUp.email({
+            name: name,
+            email: email,
+            password: password,
+            image: photo,
+            callbackURL: "/",
+        })
 
+        if (error) {
+            toast.error(error.message);
+        }
+        if (res) {
+            toast.success("Register Successful");
+            router.push('/login');
+        }
 
+    }
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     }
     return (
         <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100 p-4 my-8'>
@@ -62,7 +86,11 @@ const RegisterPage = () => {
 
                         <button className="btn bg-[#F5A623] text-black mt-4 rounded-2xl hover:bg-yellow-600 p-5">Register</button>
                         <div className="divider">or continue with</div>
-                        <button className="btn btn-outline mt-4 rounded-2xl hover:bg-[#F5A623] p-5"> <FcGoogle />Login With Google </button>
+                        <button onClick={(e) => {
+                            e.preventDefault();
+                            handleGoogleLogin();
+                        }} className="btn btn-outline mt-4 rounded-2xl hover:bg-[#F5A623] p-5"> <FcGoogle />Login With Google </button>
+                        <p className='text-center text-sm'>Have An Account ? <Link href={'/login'} className='text-blue-400 '>Login</Link> </p>
 
                     </fieldset>
                 </form>

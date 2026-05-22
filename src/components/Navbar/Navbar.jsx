@@ -1,4 +1,6 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -6,6 +8,10 @@ import React from 'react';
 const Navbar = () => {
     const pathName = usePathname();
     // console.log(pathName);
+    const { data: session, isPending } = authClient.useSession();
+    // console.log(session);
+    const user = session?.user;
+    // console.log(user);
     return (
         <div className='shadow-sm my-2'>
             <div className="container mx-auto navbar bg-base-100">
@@ -33,8 +39,21 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-2  ">
-                    <Link href={'/login'} className='btn bg-base-100 text-black rounded-full'>Login</Link>
-                    <Link href={'/register'} className='btn bg-[#F5A623] text-black rounded-full'>Register</Link>
+                    {
+                        isPending ? (<span className="loading loading-spinner loading-lg"></span>)
+                            : user ? (
+                            <div className='flex items-center gap-2'>
+                                <h2 className='text-xs md:text-lg'>{user.name}</h2>
+                                <Image className='rounded-full' src={user.image} alt={user.name} height={30} width={30}></Image>
+                                <button onClick={async ()=> await authClient.signOut()} className='btn bg-[#F5A623] text-black rounded-full'>Logout</button>
+                            </div>
+                        )
+                             : (
+                             <div className='flex items-center gap-2'>
+                                <Link href={'/login'} className='btn bg-base-100 text-black rounded-full'>Login</Link>
+                                <Link href={'/register'} className='btn bg-[#F5A623] text-black rounded-full'>Register</Link>
+                            </div>)
+                    }
                 </div>
             </div>
         </div>
