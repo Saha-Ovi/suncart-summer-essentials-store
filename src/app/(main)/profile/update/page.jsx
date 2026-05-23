@@ -24,7 +24,6 @@ const ProfileUpdatePage = () => {
             <form onSubmit={handleUpdateData} className="card lg:card-side w-full max-w-2xl overflow-hidden items-center gap-3">
                 <figure className='lg:w-1/3'>
                     <Image src={user?.image || "https://i.ibb.co.com/bjJh7Tsc/54b19ada-d53e-4ee9-8882-9dfed1bf1396.jpg"} alt={user?.name || "Update Profile Picture"} width={200} height={200} className='rounded-2xl object-cover'></Image>
-                    <h2 className='font-bold text-sm md:text-xl sm:hidden md:hidden'>Name :{user?.name || "Not Found"} </h2>
                 </figure>
                 <div className="card-body text-center lg:w-2/3">
                     <h2 className='font-bold text-sm md:text-xl lg:hidden'>Name :{user?.name || "Not Found"} </h2>
