@@ -12,7 +12,7 @@ const ProfilePage = () => {
     
     return (
         <div className='container mx-auto my-8 px-4'>
-            <div className="card lg:card-side bg-base-100 shadow-sm max-w-2xl mx-auto items-center p-4 lg:p-0">
+            <div className="card bg-base-100 shadow-sm max-w-2xl mx-auto items-center p-4 lg:p-0">
                 <figure className="w-full lg:w-auto flex justify-center pt-6 lg:pt-0 lg:pl-6">
                     <Image 
                         src={user?.image || "https://i.ibb.co.com/bjJh7Tsc/54b19ada-d53e-4ee9-8882-9dfed1bf1396.jpg" } 
