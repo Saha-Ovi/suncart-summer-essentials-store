@@ -24,7 +24,6 @@ const ProfileUpdatePage = () => {
             <form onSubmit={handleUpdateData} className="card lg:card-side w-full max-w-2xl overflow-hidden items-center gap-3">
              
                 <div className="card-body text-center lg:w-2/3">
-                    <h2 className='font-bold text-sm md:text-xl lg:hidden'>Name :{user?.name || "Not Found"} </h2>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full   border p-4 items-center justify-center space-y-3">
                         <label className="fieldset-legend font-bold">Update Profile Details</label>
 
