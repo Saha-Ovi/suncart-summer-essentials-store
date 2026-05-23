@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 const ProductCard = ({ data }) => {
     console.log(data);
@@ -21,7 +22,7 @@ const ProductCard = ({ data }) => {
                     <p>{data.description}</p>
                     <div className="card-actions justify-between items-center">
                         <div className="text-sm md:text-lg lg:text-xl font-medium">$ {data.price}</div>
-                        <Link href={`product/${data.id}`}><p className="btn btn-warning ">Products Details</p></Link>
+                        <Link href={`product/${data.id}`}><p className="btn btn-warning ">Products Details <FaArrowRightLong /></p></Link>
                     </div>
                 </div>
             </div>
