@@ -70,7 +70,7 @@ const RegisterPage = () => {
                             <label className="label">Photo Url</label>
                             <input type="text" className="input w-full rounded-2xl p-4" {...register("photo", { required: "Photo url field is required" })} placeholder="Type Your Photo url Here" />
                             {
-                                errors.email && <p className='text-red-500 text-xs'>{errors.photo.message}</p>
+                                errors.photo && <p className='text-red-500 text-xs'>{errors.photo.message}</p>
                             }
 
                         </div>
