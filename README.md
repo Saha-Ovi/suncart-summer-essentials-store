@@ -2,7 +2,7 @@
 
 A dedicated seasonal e-commerce platform built to streamline the hunt for authentic summer gear, featuring dynamic routing and secure user data management.
 
-**🔗 Live Development URL:** [http://localhost:3000/](http://localhost:3000/)
+**🔗 Live Deployment URL:** [https://suncart-summer-essentials-store-gray.vercel.app/](https://suncart-summer-essentials-store-gray.vercel.app/)
 
 ---
 
